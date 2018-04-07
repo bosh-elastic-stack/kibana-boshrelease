@@ -1,1 +1,5 @@
-name: kibana-boshrelease
+name: kibana
+blobstore:
+  provider: local
+  options:
+    blobstore_path: /tmp/kibana
