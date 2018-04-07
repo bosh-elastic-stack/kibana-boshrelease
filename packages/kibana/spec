@@ -1,0 +1,7 @@
+---
+name: kibana
+
+dependencies: []
+
+files:
+- kibana/kibana-6.2.3-linux-x86_64.tar.gz
