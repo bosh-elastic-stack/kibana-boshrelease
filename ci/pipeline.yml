@@ -106,7 +106,7 @@ jobs:
           rm -rf .final_builds releases
           VERSION=`cat ../repo-version/number`
           TARBALL=kibana-boshrelease-${VERSION}.tgz
-          bosh add-blob ../compiled/kibana/kibana-6.2.3-linux-x86_64.tar.gz kibana/kibana-6.2.3-linux-x86_64.tar.gz
+          bosh add-blob ../compiled/kibana/kibana-6.2.4-linux-x86_64.tar.gz kibana/kibana-6.2.4-linux-x86_64.tar.gz
           bosh create-release --force --version=${VERSION} --final --tarball=../releases/${TARBALL}
           SHA1=`sha1sum ../releases/${TARBALL} | awk '{print $1}'`
           mkdir -p .sha1
@@ -227,7 +227,7 @@ tasks:
       - |
         set -e
         cd repo
-        bosh add-blob ../compiled/kibana/kibana-6.2.3-linux-x86_64.tar.gz kibana/kibana-6.2.3-linux-x86_64.tar.gz
+        bosh add-blob ../compiled/kibana/kibana-6.2.4-linux-x86_64.tar.gz kibana/kibana-6.2.4-linux-x86_64.tar.gz
         rm -rf .final_builds releases
         bosh create-release --name=kibana-dev --force --timestamp-version --tarball=../releases/kibana-boshrelease.tgz
   bosh-deploy: &BOSH_DEPLOY
