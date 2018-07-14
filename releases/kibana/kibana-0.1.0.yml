@@ -1,0 +1,15 @@
+name: kibana
+version: 0.1.0
+commit_hash: 9221d40
+uncommitted_changes: true
+jobs:
+- name: kibana
+  version: 9e09c20bf078151f29622ac85c6c29bf0745ea51
+  fingerprint: 9e09c20bf078151f29622ac85c6c29bf0745ea51
+  sha1: ad20a3cafd060d0107f9e4cab0e55e571c2b3508
+packages:
+- name: kibana
+  version: e38c1cb950d89102ebd71e42f646f085d053fc40
+  fingerprint: e38c1cb950d89102ebd71e42f646f085d053fc40
+  sha1: c24e3b29e26fecae2cca22b5f364250962ba7f58
+  dependencies: []
