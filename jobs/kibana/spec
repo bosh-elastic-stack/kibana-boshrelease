@@ -28,6 +28,10 @@ properties:
   kibana.elasticsearch.port:
     description: "Port of elasticsearch master to send elasticsearch requests to"
     default: "9200"
+  kibana.elasticsearch.username:
+    description: "The username of basic authentication on Elasticsearch"
+  kibana.elasticsearch.password:
+    description: "The password of basic authentication on Elasticsearch"
   kibana.port:
     description: "Kibana is served by a back end server. This controls which port to use."
     default: 5601

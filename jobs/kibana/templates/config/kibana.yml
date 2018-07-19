@@ -114,5 +114,9 @@ kibana.defaultAppId: <%= p('kibana.default_app_id') %>
   end
 %>
 elasticsearch.url: <%= p("kibana.elasticsearch.protocol") + '://' + elasticsearch_host + ':' + p("kibana.elasticsearch.port") %>
+<% if_p("kibana.elasticsearch.username") do |username| %>
+elasticsearch.username: <%= username %>
+elasticsearch.password: <%= p("kibana.elasticsearch.password") %>
+<% end %>
 elasticsearch.requestTimeout: <%= p('kibana.request_timeout') %>
 elasticsearch.shardTimeout: <%= p('kibana.shard_timeout') %>
