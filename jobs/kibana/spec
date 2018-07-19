@@ -10,10 +10,18 @@ templates:
 packages:
 - kibana
 
+consumes:
+- name: elasticsearch
+  type: elasticsearch
+  optional: true
+
 properties:
   kibana.elasticsearch.protocol:
     description: "Protocl of elasticsearch master to send elasticsearch requests to (http or https)"
     default: "http"
+  kibana.elasticsearch.prefer_bosh_link:
+    description: "Use bosh link to connect elasticsearch in prioriy to kibana.elasticsearch.host/port"
+    default: true
   kibana.elasticsearch.host:
     description: "IP address of elasticsearch master to send elasticsearch requests to"
     default: "127.0.0.1"

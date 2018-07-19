@@ -107,6 +107,12 @@ server.port: <%= p('kibana.port') %>
 server.host: <%= p('kibana.host') %>
 kibana.index: <%= p('kibana.kibana_index') %>
 kibana.defaultAppId: <%= p('kibana.default_app_id') %>
-elasticsearch.url: <%= p("kibana.elasticsearch.protocol") + '://' + p("kibana.elasticsearch.host") + ':' + p("kibana.elasticsearch.port") %>
+<%
+  elasticsearch_host = p("kibana.elasticsearch.host")
+  if p("kibana.elasticsearch.prefer_bosh_link") then
+      if_link("elasticsearch") { |elasticsearch_link| elasticsearch_host = elasticsearch_link.instances[0].address }
+  end
+%>
+elasticsearch.url: <%= p("kibana.elasticsearch.protocol") + '://' + elasticsearch_host + ':' + p("kibana.elasticsearch.port") %>
 elasticsearch.requestTimeout: <%= p('kibana.request_timeout') %>
 elasticsearch.shardTimeout: <%= p('kibana.shard_timeout') %>
