@@ -32,6 +32,8 @@ properties:
     description: "The username of basic authentication on Elasticsearch"
   kibana.elasticsearch.password:
     description: "The password of basic authentication on Elasticsearch"
+  kibana.elasticsearch.ssl.verificationMode:
+    description: Controls the verification of certificates presented by Elasticsearch. Valid values are "none", "certificate", and "full". "full" performs hostname verification, and "certificate" does not.
   kibana.port:
     description: "Kibana is served by a back end server. This controls which port to use."
     default: 5601

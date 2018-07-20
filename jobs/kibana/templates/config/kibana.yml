@@ -115,8 +115,13 @@ kibana.defaultAppId: <%= p('kibana.default_app_id') %>
 %>
 elasticsearch.url: <%= p("kibana.elasticsearch.protocol") + '://' + elasticsearch_host + ':' + p("kibana.elasticsearch.port") %>
 <% if_p("kibana.elasticsearch.username") do |username| %>
-elasticsearch.username: <%= username %>
-elasticsearch.password: <%= p("kibana.elasticsearch.password") %>
+# https://github.com/elastic/kibana/issues/11557
+elasticsearch.customHeaders:
+  Authorization: Basic <%= Base64.encode64(username + ":" + p("kibana.elasticsearch.password")) %>
+elasticsearch.requestHeadersWhitelist: []
+<% end %>
+<% if_p("kibana.elasticsearch.ssl.verificationMode") do |verificationMode| %>
+elasticsearch.ssl.verificationMode: <%= verificationMode %>
 <% end %>
 elasticsearch.requestTimeout: <%= p('kibana.request_timeout') %>
 elasticsearch.shardTimeout: <%= p('kibana.shard_timeout') %>
