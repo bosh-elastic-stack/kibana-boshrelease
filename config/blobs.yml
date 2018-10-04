@@ -10,3 +10,6 @@ kibana/kibana-6.3.2-linux-x86_64.tar.gz:
 kibana/kibana-6.4.0-linux-x86_64.tar.gz:
   size: 187936225
   sha: b144c1864936b4d3504f9c2a9249b6d79a9f45ac
+kibana/kibana-6.4.2-linux-x86_64.tar.gz:
+  size: 188077286
+  sha: f0842be3985e7ae594656caaa1f7e95fafc185dc
