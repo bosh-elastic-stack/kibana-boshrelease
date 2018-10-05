@@ -1,5 +1,7 @@
 name: kibana
 blobstore:
-  provider: local
+  provider: s3
   options:
-    blobstore_path: /tmp/kibana
+    bucket_name: kibana-boshrelease
+    region: ap-northeast-1
+    endpoint: https://s3-ap-northeast-1.amazonaws.com
