@@ -240,6 +240,13 @@ tasks:
         cd repo
         ln -s ../compiled ./.downloads
         ./add-blobs.sh
+        cat <<EOF > config/private.yml
+        ---
+        blobstore:
+          options:
+            access_key_id: ${S3_ACCESS_KEY_ID}
+            secret_access_key: ${S3_SECRET_ACCESS_KEY}
+        EOF
         bosh upload-blobs
         mkdir -p src
         bosh create-release --name=kibana-dev --force --timestamp-version --tarball=../releases/kibana-boshrelease.tgz
