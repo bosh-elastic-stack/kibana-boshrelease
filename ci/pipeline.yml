@@ -36,6 +36,9 @@ jobs:
     config:
       <<: *DOWNLOAD_BLOBS
   - task: bosh-create-release
+    params:
+      S3_ACCESS_KEY_ID: ((s3-access-key-id))
+      S3_SECRET_ACCESS_KEY: ((s3-secret-access-key))
     config:
       <<: *BOSH_CREATE_RELEASE
   - task: bosh-deploy
@@ -55,6 +58,9 @@ jobs:
     config:
       <<: *DOWNLOAD_BLOBS
   - task: bosh-create-release
+    params:
+      S3_ACCESS_KEY_ID: ((s3-access-key-id))
+      S3_SECRET_ACCESS_KEY: ((s3-secret-access-key))
     config:
       <<: *BOSH_CREATE_RELEASE
   - task: bosh-deploy
