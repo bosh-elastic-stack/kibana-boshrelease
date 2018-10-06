@@ -109,6 +109,7 @@ jobs:
           TARBALL=kibana-boshrelease-${VERSION}.tgz
           ln -s ../compiled ./.downloads
           ./add-blobs.sh
+          bosh upload-blobs
           cat <<EOF > config/private.yml
           ---
           blobstore:
@@ -239,6 +240,7 @@ tasks:
         cd repo
         ln -s ../compiled ./.downloads
         ./add-blobs.sh
+        bosh upload-blobs
         mkdir -p src
         bosh create-release --name=kibana-dev --force --timestamp-version --tarball=../releases/kibana-boshrelease.tgz
   bosh-deploy: &BOSH_DEPLOY
