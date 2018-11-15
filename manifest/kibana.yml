@@ -9,8 +9,8 @@ releases:
   version: latest
 
 stemcells:
-- os: ubuntu-trusty
-  alias: trusty
+- os: ubuntu-xenial
+  alias: xenial
   version: latest
 
 instance_groups:
@@ -26,7 +26,7 @@ instance_groups:
   - name: kibana
     release: kibana
   instances: 1
-  stemcell: trusty
+  stemcell: xenial
   update:
     max_in_flight: 1
     serial: true
