@@ -2,9 +2,9 @@
 name: kibana
 releases:
 - name: elasticsearch
-  version: 0.0.1
-  url: https://github.com/making/elasticsearch-boshrelease/releases/download/0.0.1/elasticsearch-boshrelease-0.0.1.tgz
-  sha1: 5bda2649af418e205c7ce0721acc732e15a64225
+  version: 0.7.0
+  url: https://github.com/making/elasticsearch-boshrelease/releases/download/0.7.0/elasticsearch-boshrelease-0.7.0.tgz
+  sha1: 6c02d71bd94fe961692e8d250fcdc7e0ef19eb7c
 - name: kibana
   version: latest
 
