@@ -6,3 +6,7 @@ kibana/kibana-6.4.3-linux-x86_64.tar.gz:
   size: 235299366
   object_id: fa4c9cea-a077-4354-586b-3ec6eb73420f
   sha: 30d9adca00c0c4bae35b40a305fcb16a046a9601
+kibana/kibana-6.5.0-linux-x86_64.tar.gz:
+  size: 206012037
+  object_id: 8350f9aa-2841-465a-591b-891aac37a807
+  sha: 369b8514c3d7cb8ea1270842e1fd1330b320f000
