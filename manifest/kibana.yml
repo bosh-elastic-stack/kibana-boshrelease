@@ -20,6 +20,8 @@ stemcells:
 instance_groups:
 - name: elasticsearch-master
   jobs:
+  - name: java
+    release: openjdk
   - name: elasticsearch
     release: elasticsearch
     properties:
