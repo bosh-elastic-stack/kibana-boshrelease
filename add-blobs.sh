@@ -6,7 +6,7 @@ mkdir -p .downloads
 
 cd .downloads
 
-KIBANA_VERSION=6.6.0
+KIBANA_VERSION=6.6.1
 
 if [ ! -f ${DIR}/blobs/kibana/kibana-${KIBANA_VERSION}-linux-x86_64.tar.gz ];then
     curl -L -O -J https://artifacts.elastic.co/downloads/kibana/kibana-${KIBANA_VERSION}-linux-x86_64.tar.gz
