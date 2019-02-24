@@ -108,12 +108,21 @@ server.host: <%= p('kibana.host') %>
 kibana.index: <%= p('kibana.kibana_index') %>
 kibana.defaultAppId: <%= p('kibana.default_app_id') %>
 <%
-  elasticsearch_host = p("kibana.elasticsearch.host")
+  elasticsearch_hosts = []
   if p("kibana.elasticsearch.prefer_bosh_link") then
-      if_link("elasticsearch") { |elasticsearch_link| elasticsearch_host = elasticsearch_link.instances[0].address }
+    if_link("elasticsearch") do |elasticsearch_link| 
+      elasticsearch_link.instances.each do |instance|
+        elasticsearch_hosts << instance.address
+      end
+    end
+  else
+    elasticsearch_hosts << p("kibana.elasticsearch.host")
   end
 %>
-elasticsearch.url: <%= p("kibana.elasticsearch.protocol") + '://' + elasticsearch_host + ':' + p("kibana.elasticsearch.port") %>
+elasticsearch.hosts:
+<% elasticsearch_hosts.each do |host| -%>
+<%= "- #{p('kibana.elasticsearch.protocol')}://#{host}:#{p('kibana.elasticsearch.port')}" %>
+<% end -%>
 <% if_p("kibana.elasticsearch.username") do |username| %>
 # https://github.com/elastic/kibana/issues/11557
 elasticsearch.customHeaders:
