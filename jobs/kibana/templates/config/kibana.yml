@@ -103,6 +103,7 @@
 # translations.
 #i18n.defaultLocale: "en"
 
+server.name: <%= name %>/<%= index %>
 server.port: <%= p('kibana.port') %>
 server.host: <%= p('kibana.host') %>
 kibana.index: <%= p('kibana.kibana_index') %>
