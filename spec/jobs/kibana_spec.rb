@@ -27,7 +27,7 @@ describe 'kibana job' do
       expect(config['server.host']).to eq('0.0.0.0')
       expect(config['kibana.index']).to eq('.kibana')
       expect(config['kibana.defaultAppId']).to eq('discover')
-      expect(config['elasticsearch.url']).to eq('http://10.0.8.2:9200')
+      expect(config['elasticsearch.hosts']).to eq(['http://10.0.8.2:9200'])
       expect(config['elasticsearch.requestTimeout']).to eq(300000)
       expect(config['elasticsearch.shardTimeout']).to eq(30000)
     end
@@ -41,7 +41,7 @@ describe 'kibana job' do
           'password' => 'password',
         }
       }}, consumes: links))
-      expect(config['elasticsearch.url']).to eq('https://10.0.8.2:443')
+      expect(config['elasticsearch.hosts']).to eq(['https://10.0.8.2:443'])
       expect(config['elasticsearch.customHeaders']['Authorization']).to eq('Basic YWRtaW46cGFzc3dvcmQ=')
       expect(config['elasticsearch.requestHeadersWhitelist']).to eq([])
     end
@@ -56,8 +56,38 @@ describe 'kibana job' do
           }
         }
       }}, consumes: links))
-      puts YAML.dump(config)
       expect(config['xpack']['security']['enabled']).to eq(true)
+    end
+    it 'multiple elasticsearch hosts' do
+      config = YAML.safe_load(template.render({'kibana' => {
+        'elasticsearch' => {
+          'protocol' => 'https',
+          'port' => '443'
+        }
+      }}, consumes: [
+        Bosh::Template::Test::Link.new(
+          name: 'elasticsearch',
+          instances: [
+            Bosh::Template::Test::LinkInstance.new(address: '10.0.8.1'),
+            Bosh::Template::Test::LinkInstance.new(address: '10.0.8.2'),
+            Bosh::Template::Test::LinkInstance.new(address: '10.0.8.3'),
+            Bosh::Template::Test::LinkInstance.new(address: '10.0.8.4'),
+            Bosh::Template::Test::LinkInstance.new(address: '10.0.8.5')
+          ],
+          properties: {
+            'elasticsearch'=> {
+              'cluster_name' => 'test'
+            },
+          }
+        )
+      ]))
+      expect(config['elasticsearch.hosts']).to eq([
+        'https://10.0.8.1:443',
+        'https://10.0.8.2:443',
+        'https://10.0.8.3:443',
+        'https://10.0.8.4:443',
+        'https://10.0.8.5:443'
+      ])
     end
   end
 end
