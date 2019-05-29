@@ -1,4 +1,4 @@
-kibana/kibana-7.1.0-linux-x86_64.tar.gz:
-  size: 70577849
-  object_id: 5246d000-31ea-4f13-6db5-453507826e57
-  sha: sha256:3e210aa933a4f49fa8754d088808a9a3bded2a6519b94b8cc7078cc47bc413ff
+kibana/kibana-7.1.1-linux-x86_64.tar.gz:
+  size: 70599235
+  object_id: ae0a3989-f0c4-4db0-6292-44a3476e312d
+  sha: sha256:71e36c8a11d3dd15a67e14837944ab55d20ac430e73bf349e38cda8902f7acf8
