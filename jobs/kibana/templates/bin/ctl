@@ -23,11 +23,10 @@ case $1 in
     export CONFIG_PATH=$JOB_DIR/config/kibana.yml
 
     echo "Starting kibana..." >>$LOG_DIR/kibana.stdout.log
-    exec chpst -u vcap:vcap \
-       /var/vcap/packages/kibana/bin/kibana \
+    echo $$ > $PIDFILE
+
+    exec /var/vcap/packages/kibana/bin/kibana \
       >>$LOG_DIR/kibana.stdout.log 2>>$LOG_DIR/kibana.stderr.log
-    ) &
-    echo $! > $PIDFILE
     ;;
 
   stop)
