@@ -2,9 +2,9 @@
 name: kibana
 releases:
 - name: elasticsearch
-  version: 0.23.9
-  url: https://github.com/making/elasticsearch-boshrelease/releases/download/0.23.9/elasticsearch-boshrelease-0.23.9.tgz
-  sha1: bc65e0f84bf0dbd1dacaf681d0eabf5dbd52b16d
+  version: 0.23.11
+  url: https://github.com/making/elasticsearch-boshrelease/releases/download/0.23.11/elasticsearch-boshrelease-0.23.11.tgz
+  sha1: b9a079f18a1b17f01cd9523a0ea878ad0cb7a7e3
 - name: openjdk
   version: 8.0.4
   url: https://github.com/making/openjdk-boshrelease/releases/download/8.0.4/openjdk-boshrelease-8.0.4.tgz
