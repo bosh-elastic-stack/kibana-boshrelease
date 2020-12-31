@@ -4,4 +4,4 @@ name: kibana
 dependencies: []
 
 files:
-- kibana/kibana-7.4.2-linux-x86_64.tar.gz
+- kibana/kibana-7.5.0-linux-x86_64.tar.gz
