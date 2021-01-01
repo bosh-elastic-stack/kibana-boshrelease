@@ -1,4 +1,4 @@
-kibana/kibana-7.9.2-linux-x86_64.tar.gz:
-  size: 137021505
-  object_id: 3c8bca1c-d7e0-43c6-461c-a5aa1d5e9688
-  sha: sha256:2a614d6547aebe15a68d23bf4dc5b760c4b1ccf15f026ddc086f702a418cc1e5
+kibana/kibana-7.9.3-linux-x86_64.tar.gz:
+  size: 136992027
+  object_id: ec6489cb-b0af-4c7b-79ed-8700df5b0377
+  sha: sha256:ab3fc815596c21d23db868e24fb1e89529375c0f088415b0600ab4172b446df9
